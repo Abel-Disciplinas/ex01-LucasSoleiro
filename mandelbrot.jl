@@ -6,9 +6,13 @@ using Images
 # z^2 = x^2 + 2xyi - y^2 = (x^2 - y^2) + (2xy) i
 function iteracao_mandelbrot(cx, cy; max_iter = 40)
   iter = 0
-
-  # AQUI
-
+  x = y = 0
+  while iter < max_iter
+    Re_z = x^2 - y^2 + cx
+    Im_z = (2*x*y) + cy
+    x , y = Re_z , Im_z
+    iter += 1
+  end
   if x^2 + y^2 < 4
     return false, 0
   else
